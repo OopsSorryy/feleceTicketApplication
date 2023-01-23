@@ -12,7 +12,7 @@ public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int tripId;
 
     private LocalDateTime departureTime;
 

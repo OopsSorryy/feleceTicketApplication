@@ -6,8 +6,8 @@ public class Constant {
 
     }
     public static final String VEHICLE_NOT_FOUND="Vehicle ID Not Found";
-    public static final String CAR_NOT_FOUND="Car ID Not Found";
-    public static final String COLOR_NOT_FOUND="Color ID Not Found";
+    public static final String ROUTE_NOT_FOUND="Route ID Not Found";
+    public static final String CITY_NOT_FOUND="City ID Not Found";
 
     public static final String COLOR_ALREADY_EXIST ="Color Name Already Exist" ;
     public static final String BRAND_ALREADY_EXIST ="Brand Name Already Exist" ;

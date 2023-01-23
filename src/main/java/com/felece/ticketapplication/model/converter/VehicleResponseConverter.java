@@ -11,7 +11,7 @@ public class VehicleResponseConverter {
     public VehicleResponse convert(Vehicle from){
         return new VehicleResponse
                 (
-                        from.getId(),
+                        from.getVehicleId(),
                         from.getCapacity()
                 );
     }

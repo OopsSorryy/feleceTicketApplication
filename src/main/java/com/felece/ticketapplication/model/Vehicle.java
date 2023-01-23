@@ -15,7 +15,7 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int vehicleId;
 
     private int capacity;
 

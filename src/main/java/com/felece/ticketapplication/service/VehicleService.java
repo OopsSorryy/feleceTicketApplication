@@ -28,11 +28,11 @@ public class VehicleService {
     }
 
     public void deleteVehicleByVehicleId(int id){
-        vehicleRepository.deleteById(findVehicleById(id).getId());
+        vehicleRepository.deleteById(findVehicleById(id).getVehicleId());
     }
 
     public VehicleResponse updateVehicle(UpdateVehicleRequest updateVehicleRequest){
-        Vehicle vehicle = findVehicleById(updateVehicleRequest.getId());
+        Vehicle vehicle = findVehicleById(updateVehicleRequest.getVehicleId());
 
         vehicle.setCapacity(updateVehicleRequest.getCapacity());
 

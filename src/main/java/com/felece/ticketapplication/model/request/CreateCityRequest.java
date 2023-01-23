@@ -13,5 +13,5 @@ import javax.validation.constraints.NotBlank;
 public class CreateCityRequest {
 
     @NotBlank
-    private String name;
+    private String cityName;
 }

@@ -1,7 +1,9 @@
 package com.felece.ticketapplication.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,11 +11,13 @@ import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Route {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int routeId;
 
     private LocalDateTime dateTime;
 
@@ -30,4 +34,11 @@ public class Route {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "route")
     private List<Trip> trips;
+
+    public Route(LocalDateTime dateTime, Vehicle vehicle, City fromCity, City toCity) {
+        this.dateTime = dateTime;
+        this.vehicle = vehicle;
+        this.fromCity = fromCity;
+        this.toCity = toCity;
+    }
 }

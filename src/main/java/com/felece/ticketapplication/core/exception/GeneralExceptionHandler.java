@@ -37,16 +37,16 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-    @ExceptionHandler(CarNotFoundException.class)
-    public ResponseEntity<?> carNotFoundExceptionHandler(CarNotFoundException exception)  {
+    @ExceptionHandler(RouteNotFoundException.class)
+    public ResponseEntity<?> carNotFoundExceptionHandler(RouteNotFoundException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler(BrandNotFoundException.class)
-    public ResponseEntity<?> brandNotFoundExceptionHandler(BrandNotFoundException exception)  {
+    @ExceptionHandler(VehicleNotFoundException.class)
+    public ResponseEntity<?> vehicleNotFoundExceptionHandler(VehicleNotFoundException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler(ColorNotFoundException.class)
-    public ResponseEntity<?> colorNotFoundExceptionHandler(ColorNotFoundException exception)  {
+    @ExceptionHandler(CityNotFoundException.class)
+    public ResponseEntity<?> cityNotFoundExceptionHandler(CityNotFoundException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(CustomerNotFoundException.class)

@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 public class UpdateVehicleRequest {
 
     @NotNull
-    private int id;
+    private int vehicleId;
 
     @NotNull
     private int capacity;
