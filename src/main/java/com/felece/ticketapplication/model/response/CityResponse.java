@@ -5,12 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VehicleResponse {
+public class CityResponse {
 
-        private int vehicleId;
+    private int cityId;
 
-        private int capacity;
+    private String cityName;
 }

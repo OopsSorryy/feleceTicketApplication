@@ -19,11 +19,6 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeId;
 
-    private LocalDateTime dateTime;
-
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    private Vehicle vehicle;
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn
     private City fromCity;
@@ -35,9 +30,7 @@ public class Route {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "route")
     private List<Trip> trips;
 
-    public Route(LocalDateTime dateTime, Vehicle vehicle, City fromCity, City toCity) {
-        this.dateTime = dateTime;
-        this.vehicle = vehicle;
+    public Route(City fromCity, City toCity) {
         this.fromCity = fromCity;
         this.toCity = toCity;
     }

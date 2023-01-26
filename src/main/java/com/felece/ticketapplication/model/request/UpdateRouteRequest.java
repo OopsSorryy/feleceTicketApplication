@@ -5,20 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateRouteRequest {
 
+    @NotNull
     private int routeId;
 
-    private LocalDateTime dateTime;
-
-    private int vehicleId;
-
+    @NotNull
     private int fromCityId;
-
+    @NotNull
     private int toCityId;
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -14,11 +15,9 @@ import java.time.LocalDateTime;
 public class CreateRouteRequest {
 
 
-    private LocalDateTime dateTime;
-
-    private int vehicleId;
-
+    @NotNull
     private int fromCityId;
 
+    @NotNull
     private int toCityId;
 }

@@ -19,9 +19,6 @@ public class Vehicle {
 
     private int capacity;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "vehicle")
-    private Route route;
-
     public Vehicle(int capacity) {
         this.capacity = capacity;
     }

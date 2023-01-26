@@ -8,9 +8,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VehicleResponse {
+public class CustomerResponse {
 
-        private int vehicleId;
+    private int customerId;
 
-        private int capacity;
+    private String email;
+
+    private String firstName;
+
+    private String lastName;
+
+
+
 }

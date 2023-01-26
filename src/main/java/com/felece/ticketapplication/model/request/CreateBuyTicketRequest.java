@@ -5,16 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateVehicleRequest {
+public class CreateBuyTicketRequest {
+
 
     @NotNull
-    private int vehicleId;
+    @Min(1)
+    private int seatNumber;
 
     @NotNull
-    private int capacity;
+    private int tripId;
+
+    @NotNull
+    private int customerId;
+
 }

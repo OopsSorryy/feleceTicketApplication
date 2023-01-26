@@ -1,6 +1,5 @@
 package com.felece.ticketapplication.model.response;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VehicleResponse {
+public class LoginResponse {
 
-        private int vehicleId;
 
-        private int capacity;
+    private String jwtToken;
+
+    private CustomerResponse customerResponse;
 }

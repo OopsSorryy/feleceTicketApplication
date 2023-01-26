@@ -15,12 +15,11 @@ public class RouteResponse {
 
     private int routeId;
 
-    private LocalDateTime dateTime;
+    private CityResponse fromCity;
 
-    private VehicleResponse vehicleResponse;
+    private CityResponse toCity;
 
-    private City fromCity;
 
-    private City toCity;
+
 
 }

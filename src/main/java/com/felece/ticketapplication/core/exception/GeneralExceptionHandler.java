@@ -53,22 +53,34 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> customerNotFoundExceptionHandler(CustomerNotFoundException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(BuyTicketNotFoundException.class)
+    public ResponseEntity<?> buyTicketNotFoundExceptionHandler(BuyTicketNotFoundException exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
 
     @ExceptionHandler(ColorAlreadyExistException.class)
     public ResponseEntity<?> colorAlreadyExistExceptionHandler(ColorAlreadyExistException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
     }
-    @ExceptionHandler(BrandAlreadyExistException.class)
-    public ResponseEntity<?> brandAlreadyExistExceptionHandler(BrandAlreadyExistException exception)  {
+    @ExceptionHandler(TripNotFoundException.class)
+    public ResponseEntity<?> tripNotFoundExceptionHandler(TripNotFoundException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
     }
     @ExceptionHandler(CustomerEmailAlreadyExistException.class)
     public ResponseEntity<?> customerEmailAlreadyExistExceptionHandler(CustomerEmailAlreadyExistException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
     }
+    @ExceptionHandler(SeatNumberAlreadyTaken.class)
+    public ResponseEntity<?>seatNumberAlreadyTakenExceptionHandler(SeatNumberAlreadyTaken exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
+    }
 
     @ExceptionHandler(TokenNotValidException.class)
     public ResponseEntity<?>tokenNotValidExceptionHandler(TokenNotValidException exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(VehicleIsFullException.class)
+    public ResponseEntity<?>vehicleIsFullExceptionHandler(VehicleIsFullException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
