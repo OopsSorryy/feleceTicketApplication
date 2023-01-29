@@ -10,6 +10,7 @@ import com.felece.ticketapplication.service.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,6 +23,8 @@ public class TripController {
 
     private final TripService tripService;
 
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<TripResponse> createTrip(@RequestBody @Valid CreateTripRequest createTripRequest){
         return new ResponseEntity<>(tripService.createTrip(createTripRequest), HttpStatus.CREATED);
@@ -42,5 +45,6 @@ public class TripController {
                         fromCityId,toCityId,departureDate
                 ),HttpStatus.OK);
     }
+
 
 }

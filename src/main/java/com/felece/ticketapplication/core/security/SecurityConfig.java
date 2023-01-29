@@ -4,6 +4,7 @@ package com.felece.ticketapplication.core.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -37,8 +38,10 @@ public class SecurityConfig {
                 cors().
                 and().
                 authorizeRequests(auth -> {
-
-
+                    auth.antMatchers("/login").permitAll();
+                    auth.antMatchers("/customer/**").permitAll();
+                    auth.antMatchers(HttpMethod.GET,"/city/**").permitAll();
+                    auth.antMatchers(HttpMethod.GET,"/trip/**").permitAll();
             auth.anyRequest().authenticated();
         }).sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).
                 and().
@@ -47,8 +50,7 @@ public class SecurityConfig {
     }
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers( "/login","/customer/**","/buyTicket/**",
-                        "/city/**","/vehicle/**","/trip/**","/route/**").
+        return (web) -> web.ignoring().
                 antMatchers("/swagger-ui/**", "/v3/api-docs/**");
     }
 

@@ -106,4 +106,10 @@ public class BuyTicketService {
                 new BuyTicketNotFoundException(Constant.BUY_TICKET_NOT_FOUND));
     }
 
+    public BuyTicketResponse findById(int buyTicketId){
+        BuyTicket buyTicket1 = buyTicketRepository.findById(buyTicketId).orElseThrow(() ->
+                new BuyTicketNotFoundException(Constant.BUY_TICKET_NOT_FOUND));
+        return buyTicketConverter.convert(buyTicket1);
+    }
+
 }

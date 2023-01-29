@@ -83,6 +83,12 @@ public class CustomerService implements UserDetailsService {
         return customerConverter.convert(customerRepository.save(customer1));
     }
 
+    public CustomerResponse getByCustomerId(int customerId){
+        Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException(Constant.CUSTOMER_NOT_FOUND));
+
+        return customerConverter.convert(customer);
+    }
+
     protected Customer findCustomerByEmail(String email){
         return customerRepository.findCustomerByEmail(email).orElseThrow(()->
                 new CustomerNotFoundException(Constant.CUSTOMER_NOT_FOUND));

@@ -8,6 +8,7 @@ import com.felece.ticketapplication.service.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,10 +21,13 @@ public class CityController {
 
     private final CityService cityService;
 
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CityResponse> createCity(@RequestBody @Valid CreateCityRequest createCityRequest){
         return new ResponseEntity<>(cityService.createCity(createCityRequest),HttpStatus.CREATED);
     }
+
 
     @GetMapping
     public ResponseEntity<List<CityResponse>> getAll(){

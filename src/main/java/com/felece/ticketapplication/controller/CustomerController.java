@@ -1,6 +1,7 @@
 package com.felece.ticketapplication.controller;
 
 
+import com.felece.ticketapplication.model.Customer;
 import com.felece.ticketapplication.model.request.CreateCustomerRequest;
 import com.felece.ticketapplication.model.request.UpdateCustomerRequest;
 import com.felece.ticketapplication.model.response.CustomerResponse;
@@ -36,6 +37,11 @@ public class CustomerController {
     @PutMapping
     public ResponseEntity<CustomerResponse> updateCustomer(@RequestBody @Valid UpdateCustomerRequest updateCustomerRequest){
         return new ResponseEntity<>(customerService.updateCustomer(updateCustomerRequest), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{customerId}")
+    public ResponseEntity<CustomerResponse> getByCustomerId(@PathVariable int customerId){
+        return new ResponseEntity<>(customerService.getByCustomerId(customerId), HttpStatus.OK);
     }
 
 }
